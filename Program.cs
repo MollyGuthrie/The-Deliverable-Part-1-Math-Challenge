@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DeliverablePart1
 {
@@ -13,9 +13,8 @@ namespace DeliverablePart1
             {
                 var firstNum = GetIntFromUser("Please enter a three digit whole number");
                 var secondNum = GetIntFromUser("Please enter a three digit whole number");
-                var thirdNum = GetIntFromUser("Please enter a three digit whole number");
 
-                Console.WriteLine(Compare(firstNum, secondNum, thirdNum) ? "True" : "False");
+                Console.WriteLine(Compare(firstNum, secondNum) ? "True" : "False");
             }
             else
             {
@@ -55,7 +54,7 @@ namespace DeliverablePart1
             }
         }
 
-        public static bool Compare(int a, int b, int c)
+        public static bool Compare(int a, int b)
         {
             var lastDigitA = a % 10;
             var lastDigitB = b % 10;
@@ -67,14 +66,14 @@ namespace DeliverablePart1
                 lastDigitB = b % 10;
                 a = a / 10;
                 b = b / 10;
-                c--;
+
                 var sumCompare = lastDigitA + lastDigitB;
 
                 if (sumCompare != sumStatic)
                 {
                     return false;
                 }
-            } while (c != 0);
+            } while (b != 0);
             return true;
         }
     }
